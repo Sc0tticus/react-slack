@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import firebase from '../../firebase';
 
 class Register extends React.Component {
-	// matches
 	state = {
 		username: '',
 		email: '',
@@ -35,7 +34,7 @@ class Register extends React.Component {
 	};
 
 	isPasswordValid = ({ password, passwordConfirmation }) => {
-		if (password.length < 6 || passwordConfirmation.length < 6) {
+		if (password.length < 6 || passwordConfirmation < 6) {
 			return false;
 		} else if (password !== passwordConfirmation) {
 			return false;
@@ -45,6 +44,10 @@ class Register extends React.Component {
 	};
 
 	displayErrors = errors => errors.map((error, i) => <p key={i}>{error.message}</p>);
+
+	isFormEmpty = ({ username, email, password, passwordConfirmation }) => {
+		return !username.length || !email.length || !password.length || !passwordConfirmation.length;
+	};
 
 	handleChange = event => {
 		this.setState({ [event.target.name]: event.target.value });
