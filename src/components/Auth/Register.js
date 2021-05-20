@@ -2,7 +2,6 @@ import React from 'react';
 import { Grid, Form, Segment, Button, Header, Message, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import firebase from '../../firebase';
-
 class Register extends React.Component {
 	state = {
 		username: '',
@@ -18,11 +17,15 @@ class Register extends React.Component {
 
 		if (this.isFormEmpty(this.state)) {
 			error = { message: 'Fill in all fields' };
+
 			this.setState({ errors: errors.concat(error) });
+
 			return false;
 		} else if (!this.isPasswordValid(this.state)) {
 			error = { message: 'Password is invalid' };
+
 			this.setState({ errors: errors.concat(error) });
+
 			return false;
 		} else {
 			return true;
