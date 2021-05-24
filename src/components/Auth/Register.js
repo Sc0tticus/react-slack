@@ -2,6 +2,7 @@ import React from 'react';
 import { Grid, Form, Segment, Button, Header, Message, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import firebase from '../../firebase';
+
 class Register extends React.Component {
 	state = {
 		username: '',
@@ -13,6 +14,7 @@ class Register extends React.Component {
 
 	isFormValid = () => {
 		let errors = [];
+
 		let error;
 
 		if (this.isFormEmpty(this.state)) {
